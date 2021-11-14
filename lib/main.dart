@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:zenn_articles/options_page.dart';
+
+import 'package:zenn_articles/routes/router.gr.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
+  MyApp({Key? key}) : super(key: key);
+  final _appRouter = AppRouter();
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const OptionsPage(),
+    return MaterialApp.router(
+      theme: ThemeData.dark(),
+      backButtonDispatcher: RootBackButtonDispatcher(),
+      debugShowCheckedModeBanner: false,
+      routerDelegate: _appRouter.delegate(),
+      routeInformationParser: _appRouter.defaultRouteParser(),
     );
   }
 }

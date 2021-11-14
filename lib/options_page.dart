@@ -6,7 +6,12 @@ class OptionsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(),
+      appBar: AppBar(
+        title: const Text('記事選択'),
+      ),
+      body: const Center(
+        child: Text('data'),
+      ),
     );
   }
 }
